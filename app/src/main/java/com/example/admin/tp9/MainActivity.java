@@ -41,8 +41,9 @@ public class MainActivity extends Traceur {
         });
 
     }
-
+    // Les sauvegardes aux rotations
     @Override
+    //On ressort notre valeur
     protected void onRestoreInstanceState(Bundle savedInstantState) {
         super.onRestoreInstanceState(savedInstantState);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -50,12 +51,14 @@ public class MainActivity extends Traceur {
         progressBar.setProgress(progress);
     }
     @Override
+    //On sauvegarde notre valeur
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progress = progressBar.getProgress();
         Log.d("Etat", "progress:" + progress);
         //outState.putInt("progress", progress);
+        //Méthode Parcelable pour persister
         Point point = new Point(progress);
         outState.putParcelable("progress", point);
     }

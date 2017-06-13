@@ -31,6 +31,7 @@ public class Point implements Parcelable {
     private Point(Parcel in) {
         compteur = in.readInt();
     }
+    //Mon constructeur
     public Point(int valeur) {
         compteur = valeur;
     }
